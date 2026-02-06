@@ -2,29 +2,28 @@ deptrac:
     paths:
         - ./src
     exclude_files:
-        - '#.*test.*#'
+        - '#.*/Tests/.*#'
+        - '#.*/tests/.*#'
+
+    # Modular monolith boundary rules (v0).
+    # - Shared is reusable cross-cutting model/services.
+    # - Modules may depend on Shared.
+    # - Shared must not depend on Modules.
     layers:
         -
-            name: Controller
+            name: Shared
             collectors:
                 -
-                    type: classLike
-                    value: .*Controller.*
+                    type: directory
+                    value: src/Shared
         -
-            name: Repository
+            name: Modules
             collectors:
                 -
-                    type: classLike
-                    value: .*Repository.*
-        -
-            name: Service
-            collectors:
-                -
-                    type: classLike
-                    value: .*Service.*
+                    type: directory
+                    value: src/Modules
+
     ruleset:
-        Controller:
-            - Service
-        Service:
-            - Repository
-        Repository:
+        Modules:
+            - Shared
+        Shared: ~

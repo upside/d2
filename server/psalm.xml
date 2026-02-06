@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <psalm
   errorLevel="4"
+  phpVersion="8.4"
+  findUnusedCode="false"
   resolveFromConfigFile="true"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="vendor/vimeo/psalm/config.xsd"
@@ -8,6 +10,11 @@
   <projectFiles>
     <directory name="src" />
     <directory name="tests" />
+
+    <!-- Never report issues from dependencies. -->
+    <ignoreFiles>
+      <directory name="vendor" />
+    </ignoreFiles>
   </projectFiles>
 
   <issueHandlers>
@@ -15,5 +22,8 @@
     <MissingParamType errorLevel="info" />
     <MissingReturnType errorLevel="info" />
     <MissingPropertyType errorLevel="info" />
+
+    <!-- Symfony discovers Kernel/Controllers via config/attributes; Psalm can't always see that. -->
+    <UnusedClass errorLevel="info" />
   </issueHandlers>
 </psalm>
