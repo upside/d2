@@ -1,39 +1,18 @@
-# d2 (pet project)
+# Rails Style Pack (черновик)
 
-Monorepo:
+Это стартовые “рельсы” для агента, чтобы он делал **графику и UI** в одном стиле (dark fantasy, тёплый реализм).
 
-- `server/` — Symfony (PHP 8.4+) backend
-- `client/` — Vue 3 + Router + Pinia + TypeScript frontend
-- `infra/` — FrankenPHP (+ built-in Mercure) + Postgres dev stack
-- `docs/` — lightweight project rails (contracts, specs, decisions, templates)
+## Содержимое
 
-## Quick start (dev)
+- `docs/style/STYLE_BIBLE.md` — визуальная ДНК и запреты
+- `docs/ui/UI_COMPONENTS.md` — список компонентов и контракты
+- `docs/style/PROMPTBOOK.md` — шаблоны промптов (UI/иконки/мокапы)
+- `docs/style/ASSET_SPECS.md` — размеры, 9-slice, именование
+- `docs/process/AGENT_WORKFLOW.md` — короткий процесс работы и фидбека
 
-1) Start infra:
+## Как использовать
 
-```bash
-cd infra
-cp .env.example .env
-docker compose up -d --build
-```
-
-2) Install deps:
-
-```bash
-cd ../server
-composer install
-
-cd ../client
-npm install
-```
-
-3) Run the frontend:
-
-```bash
-npm run dev
-```
-
-URLs:
-- Frontend: http://localhost:5173
-- Backend: http://localhost:8080
-- Mercure hub: http://localhost:8080/.well-known/mercure
+1) Перед задачей агент читает Style Bible.
+2) Для генерации берёт шаблон из Promptbook.
+3) Проверяет размеры в Asset Specs.
+4) Делает наборы (состояния/серии), а не единичные картинки.
