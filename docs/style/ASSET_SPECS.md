@@ -30,6 +30,28 @@
 - Large slot: 80x80 (для экипировки)
 - Socket: 24x24 (основа), 28x28 (крупнее)
 
+### Экипировка (paper doll)
+
+**Слоты экипировки фиксированы** (см. `docs/specs/EQUIPMENT.md`).
+
+Когда мы просим "сгенерировать набор экипировки" — он **обязан** включать иконки предметов под все слоты:
+
+- head
+- body
+- belt
+- boots
+- gloves
+- left_hand
+- right_hand
+- amulet
+- ring_left
+- ring_right
+
+Рекомендуемые размеры иконок для экипировки:
+
+- 128x128 (основной)
+- 256x256 (если нужен "герой"/витрина)
+
 ### Кнопки
 - Высота: 32 / 40 / 48
 - Минимальный радиус/скос: визуально одинаковый
@@ -56,6 +78,15 @@
 - ui/socket/socket_24_empty.png
 - ui/tooltip/tooltip_frame_9slice.png
 - icon/item/armor_chest_128.png
+- icon/item/armor_head_128.png
+- icon/item/armor_body_128.png
+- icon/item/armor_belt_128.png
+- icon/item/armor_boots_128.png
+- icon/item/armor_gloves_128.png
+- icon/item/weapon_1h_128.png
+- icon/item/shield_128.png
+- icon/item/amulet_128.png
+- icon/item/ring_128.png
 - icon/rune/rune_01_64.png
 
 Правило: lowercase, snake_case, без пробелов.

@@ -63,6 +63,27 @@ Generate a fantasy item icon, 512x512, centered, clean silhouette, consistent wa
 Materials: polished steel + worn bronze details, realistic texture.
 Transparent background. {STYLE ANCHOR}. {NEGATIVE}.
 
+### 6.1) Набор экипировки (обязательно все слоты)
+
+Когда задача звучит как "сгенерируй базовый/стартовый набор экипировки", результат **обязан** включать предметы под каждый слот из `docs/specs/EQUIPMENT.md`:
+
+- Head (helmet/hood)
+- Body (armor/robe)
+- Belt
+- Boots
+- Gloves
+- Main hand (weapon)
+- Off hand (shield/focus)
+- Amulet
+- Ring (left)
+- Ring (right)
+
+Рекомендации для стартового тира:
+- силуэт проще, меньше золота/инкрустации
+- меньше магического свечения
+- больше ткани/кожи/простого металла
+- каждую иконку рендерить **отдельным PNG на прозрачном фоне**, строго по тем же правилам, что и остальные иконки
+
 ---
 
 ## 7) Мокап страницы (для верстки)

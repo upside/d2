@@ -94,3 +94,8 @@ When implementing a feature:
 
 ## UI / art style
 - Follow `docs/style/art-ui-style.md` (prompts + do/don't) when generating UI mockups or icons.
+
+## Gameplay/UI specs
+
+- **Equipment slots are fixed**: see `docs/specs/EQUIPMENT.md`.
+  - Any request like “generate a starter gear set / базовый набор экипировки” MUST produce items for **all** equipment slots.

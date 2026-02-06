@@ -11,6 +11,10 @@
 - Moodboard: docs/style/references/moodboard/
 - Typography:docs/style/references/typography/
 
+Дополнительно полезно:
+
+- **Сеты экипировки**: `docs/style/references/items/equipment_sets/` — референсы целостных наборов (единый металл/кожа/орнамент на всём наборе).
+
 ## Как называть файлы
 Формат: <GROUP>_<NNN>_<short_slug>.png
 
