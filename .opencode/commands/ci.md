@@ -1,17 +1,13 @@
 ---
-description: Run full CI checks (server + client)
+description: Run all checks (server + client) and summarize failures
 agent: build
 ---
-Run the project's CI checks from the repo root.
 
-Server:
-- `cd server && composer ci`
+Run the full local CI for both server and client. If anything fails, focus on the first error, explain it briefly, and suggest the smallest fix.
 
-Client:
-- `cd client && npm run ci`
-
-If anything fails:
-1) Show the failing output.
-2) Identify the root cause.
-3) Propose the smallest fix.
-4) Re-run the failing command(s) to confirm.
+```bash
+cd server
+composer ci
+cd ../client
+npm run ci
+```

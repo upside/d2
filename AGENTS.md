@@ -9,17 +9,16 @@ This repo is set up for agent-driven development with **minimal process overhead
 - Multiplayer is core. Real-time delivery uses **Mercure** (built into FrankenPHP).
 
 ## Repo layout
-- `server/` — Symfony (PHP)
+
+### Architecture: modular monolith
+- We build a **modular monolith**: feature modules live under `server/src/Modules/*`.
+- Shared reusable model lives under `server/src/Shared/*`.
+- Convention: `Module/*` may depend on `Shared/*`; avoid direct cross-module calls.
+
+- `server/` — Symfony (PHP 8.4+)
 - `client/` — Vue 3 + Router + Pinia + TypeScript
 - `infra/` — FrankenPHP (+ Mercure) + Postgres
 - `docs/` — lightweight rails: contracts/specs/decisions/templates
-- `.opencode/` — OpenCode config: commands/agents/skills
-
-## OpenCode integration
-- **Commands**: `.opencode/commands/*.md` (run as `/dev`, `/ci`, `/doctor`, `/story`, ...).
-- **Agents**: `.opencode/agents/*.md` for focused roles (e.g. `/@review`).
-- **Skills**: `.opencode/skills/<name>/SKILL.md` for on-demand repo knowledge.
-- Project config: `opencode.jsonc` in repo root.
 
 ## How to run (dev)
 
@@ -57,15 +56,23 @@ Quick smoke test:
 
 ## Mandatory checks before committing
 
-Server:
+Server (from `server/`):
 ```bash
-cd server
+composer cs
+composer stan
+composer psalm
+composer deptrac
+composer test
+# or all at once:
 composer ci
 ```
 
-Client:
+Client (from `client/`):
 ```bash
-cd client
+npm run lint
+npm run type-check
+npm run test:unit
+# or all at once:
 npm run ci
 ```
 
@@ -83,3 +90,7 @@ When implementing a feature:
 ## Contracts-first
 - Commands/events are documented in `docs/contracts.md`.
 - Any wire change requires updating the contract doc in the same commit.
+
+
+## UI / art style
+- Follow `docs/style/art-ui-style.md` (prompts + do/don't) when generating UI mockups or icons.

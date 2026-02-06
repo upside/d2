@@ -1,19 +1,18 @@
 ---
-description: Start local dev infra (FrankenPHP + Mercure + Postgres)
+description: Start local infra (FrankenPHP+Mercure+Postgres) and show URLs
 agent: build
 ---
-Bring up the local development infrastructure.
 
-Steps:
-1) From repo root, ensure infra env exists:
-   - If `infra/.env` does not exist, copy it from `infra/.env.example`.
-2) Start containers:
-   - `docker compose -f infra/docker-compose.yml up -d --build`
-3) Print the important URLs:
-   - Backend: http://localhost:8080
-   - Mercure hub: http://localhost:8080/.well-known/mercure
-   - Mercure UI (dev): http://localhost:8080/ui/
-4) Smoke test:
-   - `curl -fsS http://localhost:8080/api/health`
+Start local infrastructure with Docker:
 
-If anything fails, show the relevant docker logs.
+```bash
+cd infra
+cp -n .env.example .env || true
+docker compose up -d --build
+```
+
+Then print the key URLs:
+- Frontend (Vite): http://localhost:5173
+- Backend: http://localhost:8080
+- Mercure hub: http://localhost:8080/.well-known/mercure
+- Mercure UI: http://localhost:8080/ui/

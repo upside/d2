@@ -11,11 +11,14 @@
     "test:e2e": "playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "run-s lint:*",
-    "lint:oxlint": "oxlint . --fix",
-    "lint:eslint": "eslint . --fix --cache",
+    "lint": "run-s lint:oxlint lint:eslint",
+    "lint:oxlint": "oxlint .",
+    "lint:eslint": "eslint . --cache",
     "format": "prettier --write --experimental-cli src/",
-    "ci": "npm run lint && npm run type-check && npm run test:unit"
+    "ci": "npm run lint && npm run type-check && npm run test:unit",
+    "lint:oxlint:fix": "oxlint . --fix",
+    "lint:eslint:fix": "eslint . --fix --cache",
+    "lint:fix": "run-s lint:*:fix format"
   },
   "dependencies": {
     "pinia": "^3.0.4",

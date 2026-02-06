@@ -18,3 +18,13 @@ A task is done when:
 ## Where logic lives
 - **Server**: all combat rules and validation
 - **Client**: UI + state + calls API + renders events/snapshots
+
+
+## Quality gate
+- Server must pass: `composer ci` (cs-fixer, phpstan, psalm, deptrac, phpunit)
+- Client must pass: `npm run ci` (lint, typecheck, tests)
+
+
+## Modular monolith
+- Implement features as modules under `server/src/Modules/<ModuleName>/...`.
+- Shared reusable model/services go in `server/src/Shared/...`.

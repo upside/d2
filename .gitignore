@@ -5,4 +5,14 @@
 
 # macOS
 .DS_Store
-infra/.env
+# PHP / Symfony
+/server/vendor/
+/server/var/
+/server/.phpunit.result.cache
+/server/.php-cs-fixer.cache
+/server/psalm.cache/
+# Node / Vite
+/client/node_modules/
+/client/dist/
+# Logs
+*.log

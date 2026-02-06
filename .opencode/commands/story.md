@@ -1,13 +1,11 @@
 ---
-description: Draft a new feature story from a short description
+description: Create a new story using docs/templates/story.md
 agent: plan
 ---
-Turn the user's request into a Story using `docs/templates/story.md`.
 
-Requirements:
-- Keep it MVP-sized.
-- Include acceptance criteria and test cases.
-- Link or update `docs/contracts.md` if the story changes network payloads.
-- Add the story to `docs/backlog.md`.
+Create a new story file under `docs/stories/` using `docs/templates/story.md`.
 
-Input: $ARGUMENTS
+The story title is: $ARGUMENTS
+
+- Derive acceptance criteria and test cases.
+- Keep it minimal but executable.
