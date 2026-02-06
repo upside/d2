@@ -28,3 +28,19 @@
 ## Export rules
 - Prefer transparent PNG for icons/frames.
 - Avoid text inside images (text is rendered in UI).
+
+
+
+## Icon contract (must follow)
+
+For any `icon/*` assets (items, runes, gems, potions, character icons):
+
+- **PNG RGBA** with **fully transparent background** (alpha).
+- **No UI panels / inventory grids / frames / cards / vignettes** in icon assets.
+- Keep safe padding (8–12 px or ~10–14%) so UI does not clip silhouettes.
+- Respect inventory footprint sizes from `docs/style/ASSET_SPECS.md`:
+  - 1 cell = 128×128 (base) or 256×256 (hi-res)
+  - Output dimensions must be exactly `W*cell × H*cell`.
+
+Extra negative prompt for item icons:
+- "no inventory grid, no slot frame, no UI panel, no border, no card, no vignette, no background"

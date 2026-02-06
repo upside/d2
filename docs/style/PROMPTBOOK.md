@@ -118,3 +118,42 @@ No text. Keep areas clean and rectangular for HTML overlay.
 - фиксированные размеры и сетка
 - одинаковый “белый баланс” (тёплый)
 - одинаковая интенсивность текстуры (лучше чуть меньше)
+
+---
+
+## 6.2 Предметы (inventory-ready) по габариту W×H
+
+> ВАЖНО: **один файл = один предмет**.  
+> Нельзя рисовать предмет “внутри инвентарной клетки/панели/рамки”.  
+> Слот/рамка/подложка — это `ui/*`, а предмет — это `icon/*`.
+
+**Требования (повторение контракта):**
+- Формат: **PNG RGBA**, фон **100% прозрачный**.
+- **Без** рамок, плашек, “карточек”, сетки инвентаря, виньетки.
+- Без текста/лейблов/логотипов.
+- Safe padding: ~**10–14%** по краям (или 8–12px на итоговом размере).
+- Размер файла обязан соответствовать габариту предмета в клетках:
+  - 1 клетка = 128×128 (base) или 256×256 (hi-res)
+  - Итог: `W*cell × H*cell` (например броня 2×3 → 512×768 при cell=256)
+
+### Шаблон промпта
+
+Generate **one** fantasy item inventory icon: {ITEM_NAME}.
+Footprint: {W}x{H} cells. Output canvas: {PX_W}x{PX_H} px.
+Centered object, clean silhouette, consistent warm lighting, realistic materials.
+**Transparent background** (RGBA). **No UI frame, no inventory grid, no slot, no card, no background**.
+{STYLE ANCHOR}. {NEGATIVE}.
+Additional negative: no panel, no border, no vignette, no text, no labels, no watermark.
+
+### Примеры
+
+**Броня (Body, 2×3, hi-res):**
+Generate one fantasy chest armor inventory icon: "Wanderer’s Vest".
+Footprint: 2x3 cells. Output canvas: 512x768 px.
+Transparent background. No UI frame, no slot, no grid. {STYLE ANCHOR}. {NEGATIVE}.
+Additional negative: no panel, no border, no vignette, no text.
+
+**Меч 1H (1×4, hi-res):**
+Generate one fantasy one-handed sword inventory icon: "Militia Blade".
+Footprint: 1x4 cells. Output canvas: 256x1024 px.
+Transparent background. No UI frame, no slot, no grid. {STYLE ANCHOR}. {NEGATIVE}.
