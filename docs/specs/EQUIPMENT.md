@@ -19,6 +19,22 @@ The character has **10** equipment slots:
 
 > Naming note: **Left/Right** is from the character perspective (not the viewer).
 
+
+## Inventory grid footprint (W×H)
+
+Besides the equipment *slot* (Head/Body/Weapon…), each item also has an **inventory grid footprint** `W×H`
+(columns × rows). The authoritative mapping and composition rules live in:
+`docs/style/ASSET_SPECS.md` → **Размер предметов в сетке инвентаря (W×H)**.
+
+Quick reference:
+- Ring / Amulet: **1×1**
+- Belt: **1×2**
+- Helm / Gloves / Boots: **2×2**
+- Body armor: **2×3**
+- Shields: **2×2 … 2×4**
+- Weapons: **1×2 … 2×6**
+
+
 ## Equip rules (MVP)
 
 ### Hands

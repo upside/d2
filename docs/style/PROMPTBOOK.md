@@ -78,6 +78,23 @@ Transparent background. {STYLE ANCHOR}. {NEGATIVE}.
 - Ring (left)
 - Ring (right)
 
+**Важно: размеры предметов в инвентаре (W×H).**  
+Для генерации PNG‑иконок используй таблицу из `docs/style/ASSET_SPECS.md` → **Размер предметов в сетке инвентаря (W×H)**.
+Короткая шпаргалка:
+- Ring / Amulet: **1×1**
+- Belt: **1×2**
+- Helm / Gloves / Boots: **2×2**
+- Body Armor: **2×3**
+- Shield: **2×2…2×4**
+- Weapon: **1×2…2×6** (короткий меч 1×2, копьё 2×6)
+
+В каждом prompt явно указывай:
+- “transparent background PNG”
+- “export size matches **<WxH> inventory footprint** using 128px per cell (base) / 256px per cell (hi‑res)”
+- “centered object, 6–10% padding, no background plate”
+
+
+
 Рекомендации для стартового тира:
 - силуэт проще, меньше золота/инкрустации
 - меньше магического свечения
