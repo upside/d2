@@ -9,10 +9,17 @@ This repo is set up for agent-driven development with **minimal process overhead
 - Multiplayer is core. Real-time delivery uses **Mercure** (built into FrankenPHP).
 
 ## Repo layout
-- `server/` — Symfony (PHP 8.4+)
+- `server/` — Symfony (PHP)
 - `client/` — Vue 3 + Router + Pinia + TypeScript
 - `infra/` — FrankenPHP (+ Mercure) + Postgres
 - `docs/` — lightweight rails: contracts/specs/decisions/templates
+- `.opencode/` — OpenCode config: commands/agents/skills
+
+## OpenCode integration
+- **Commands**: `.opencode/commands/*.md` (run as `/dev`, `/ci`, `/doctor`, `/story`, ...).
+- **Agents**: `.opencode/agents/*.md` for focused roles (e.g. `/@review`).
+- **Skills**: `.opencode/skills/<name>/SKILL.md` for on-demand repo knowledge.
+- Project config: `opencode.jsonc` in repo root.
 
 ## How to run (dev)
 
@@ -53,15 +60,13 @@ Quick smoke test:
 Server:
 ```bash
 cd server
-composer test
+composer ci
 ```
 
 Client:
 ```bash
 cd client
-npm run lint
-npm run type-check
-npm run test:unit
+npm run ci
 ```
 
 ## Working rules (minimal process)

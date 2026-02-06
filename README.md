@@ -37,3 +37,6 @@ URLs:
 - Frontend: http://localhost:5173
 - Backend: http://localhost:8080
 - Mercure hub: http://localhost:8080/.well-known/mercure
+
+## OpenCode
+This repo includes OpenCode rails (commands/agents/skills) under `.opencode/` and a project config `opencode.jsonc`.
