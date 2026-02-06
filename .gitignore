@@ -1,1 +1,7 @@
 /.idea/
+
+# infra
+/infra/.env
+
+# macOS
+.DS_Store

@@ -1,0 +1,15 @@
+:80
+
+mercure {
+    # Secret key used to sign JWT tokens for publishers
+    publisher_jwt {$MERCURE_PUBLISHER_JWT_KEY}
+
+    # DEV ONLY: allow anonymous subscribers (no JWT)
+    anonymous
+
+    # Fix CORS errors when connecting from the Vite dev server origin
+    cors_origins {$CORS_ORIGINS}
+}
+
+root * /app/public
+php_server
